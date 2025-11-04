@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindBlend — Engineering × Creativity</title>
+  <meta name="description" content="At MindBlend, we blend engineering precision with creative problem-solving.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e3b4b;          /* Deep teal */
+      --card:#0f4b60;        /* Slightly lighter teal */
+      --accent:#a7f1d5;      /* Mint accent (from logo) */
+      --text:#f3fbff;        /* Off-white */
+      --muted:#c6e7f3;       /* Muted text */
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--text); background:linear-gradient(180deg, var(--bg), #0b2f3b 60%, #0a2731 100%);}    
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px); background:rgba(10,39,49,.6); border-bottom:1px solid rgba(255,255,255,.08); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .brand img{height:42px; width:auto; display:block; filter: drop-shadow(0 6px 12px rgba(0,0,0,.2));}
+    .nav a.button{padding:10px 16px; border:1px solid rgba(255,255,255,.18); border-radius:12px; transition:all .25s ease; font-weight:600}
+    .nav a.button:hover{transform:translateY(-1px); border-color:var(--accent); box-shadow:0 6px 18px rgba(167,241,213,.18)}
+
+    .hero{display:grid; grid-template-columns:1.25fr 1fr; align-items:center; gap:36px; padding:72px 0}
+    .hero .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)}
+    h1{font-size:clamp(34px, 4.4vw, 56px); line-height:1.05; margin:0 0 16px;}
+    p.lead{font-size:clamp(16px, 2.2vw, 20px); color:var(--muted); margin:0 0 26px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .cta .primary{background:var(--accent); color:#0b2f3b; padding:12px 18px; border-radius:12px; font-weight:800; border:none; cursor:pointer; transition:transform .2s ease}
+    .cta .primary:hover{transform:translateY(-1px)}
+    .cta .ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.2); padding:12px 18px; border-radius:12px; font-weight:700}
+
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px}
+    .feature{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:18px}
+    .feature h3{margin:0 0 8px; font-size:18px}
+    .feature p{margin:0; color:var(--muted); font-size:15px}
+
+    .logoCard{display:flex; align-items:center; justify-content:center; background:linear-gradient(145deg, var(--card), #0b3a4a); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+    .logoCard img{max-width:210px; width:100%; height:auto}
+
+    section{padding:56px 0}
+    section h2{font-size:30px; margin:0 0 14px}
+    section p{color:var(--muted); margin:0 0 24px}
+
+    .contact{display:grid; grid-template-columns:1fr 1.1fr; gap:24px}
+    form{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px}
+    label{display:block; font-weight:600; margin:10px 0 6px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); color:var(--text); outline:none}
+    textarea{min-height:120px; resize:vertical}
+    .submit{margin-top:12px; background:var(--accent); color:#0b2f3b; padding:12px 18px; font-weight:800; border:none; border-radius:12px; cursor:pointer}
+
+    .cardList{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .miniCard{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px}
+
+    footer{padding:28px 0 40px; color:var(--muted); border-top:1px solid rgba(255,255,255,.08); margin-top:20px}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding:44px 0}
+      .features{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .cardList{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="MindBlend Home">
+        <!-- Place logo_mindblend.png next to this index.html -->
+        <img src="logo_mindblend.png" alt="MindBlend logo" />
+        <span>MindBlend</span>
+      </a>
+      <nav>
+        <a class="button" href="#work">Work</a>
+        <a class="button" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>Engineering precision × creative problem‑solving</h1>
+        <p class="lead">At MindBlend, we blend engineering precision with creative problem‑solving.</p>
+        <div class="cta">
+          <a class="primary" href="#contact">Start a project</a>
+          <a class="ghost" href="#work">See what we do</a>
+        </div>
+        <div class="features">
+          <div class="feature"><h3>Cloud & DevOps</h3><p>AWS & GCP architecture, Terraform IaC, CI/CD (GitHub Actions/Jenkins), cost & reliability tuning.</p></div>
+          <div class="feature"><h3>Web & APIs</h3><p>Java (Spring Boot), PHP (Laravel/Zend/CodeIgniter), modern JS UIs, scalable REST services.</p></div>
+          <div class="feature"><h3>Security & Compliance</h3><p>Static analysis, pen‑testing, secrets management, HIPAA‑style logging and audit trails.</p></div>
+          <div class="feature"><h3>Embedded & Edge</h3><p>Python/GTK systems with barcode/camera, actuators, and on‑device data (SQLite).</p></div>
+        </div>
+          <div class="feature"><h3>Web & APIs</h3><p>TypeScript/Java/Laravel microservices and clean UX.</p></div>
+          <div class="feature"><h3>Data & Observability</h3><p>Logging, metrics, dashboards, and insights.</p></div>
+        </div>
+      </div>
+      <div class="logoCard">
+        <img src="logo_mindblend.png" alt="MindBlend logo large" />
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>What we build</h2>
+      <p>We deliver production‑grade software across healthcare, education, and enterprise—combining battle‑tested engineering with thoughtful UX.</p>
+      <div class="cardList">
+        <div class="miniCard"><strong>Healthcare & Gov Platforms</strong><br><span style="color:var(--muted)">High‑scale portals serving millions of users with secure data handling.</span></div>
+        <div class="miniCard"><strong>Microservices & Migrations</strong><br><span style="color:var(--muted)">From monoliths to Java/Laravel services with zero‑downtime cutovers.</span></div>
+        <div class="miniCard"><strong>Frontends that Flow</strong><br><span style="color:var(--muted)">Responsive web apps that are fast, accessible, and easy to use.</span></div>
+        <div class="miniCard"><strong>CI/CD & IaC Automation</strong><br><span style="color:var(--muted)">Pipelines, testing, and Terraform for repeatable, safe deployments.</span></div>
+        <div class="miniCard"><strong>Data Pipelines & Analytics</strong><br><span style="color:var(--muted)">Observability, dashboards, and product analytics to guide decisions.</span></div>
+        <div class="miniCard"><strong>Security & Compliance</strong><br><span style="color:var(--muted)">Static analysis, pen‑tests, and structured audit logs (HIPAA‑style).</span></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you have a challenge we can help with, we’d love to hear from you.</p>
+      <div class="contact">
+        <div>
+          <form action="mailto:cristikrisch@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Your name</label>
+            <input id="name" name="name" placeholder="Jane Doe" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your goals…" required></textarea>
+
+            <button class="submit" type="submit">Send</button>
+          </form>
+        </div>
+        <div>
+          <div class="miniCard">
+            <h3 style="margin:0 0 4px">Email</h3>
+            <a href="mailto:cristikrisch@gmail.com">cristikrisch@gmail.com</a>
+          </div>
+          <div class="miniCard">
+            <h3 style="margin:0 0 4px">Phone</h3>
+            <a href="tel:+40723040232">+40 723 040 232</a>
+          </div>
+          <div class="miniCard">
+            <h3 style="margin:0 0 4px">Office</h3>
+            <address style="font-style:normal; color:var(--muted)">
+              Cluj‑Napoca<br />
+              Romania
+            </address>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> MindBlend. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
